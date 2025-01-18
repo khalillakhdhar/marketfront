@@ -1,4 +1,5 @@
 import {  Order } from "./order";
+import { Category } from './category';
 
 export interface Product {
 
@@ -8,6 +9,7 @@ export interface Product {
   price: number;
   stock: number;
   photo: string;
+  category: Category;
 
 
 
