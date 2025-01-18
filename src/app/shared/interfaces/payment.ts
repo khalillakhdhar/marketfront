@@ -1,4 +1,4 @@
-import { Commande } from "./commande";
+import { Order } from "./order";
 
 export interface Payment {
 
@@ -6,7 +6,7 @@ export interface Payment {
   amount:number;
   date:Date;
   method:string;
-  order:Commande;
+  order:Order;
 
 
 }
