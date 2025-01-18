@@ -1,1 +1,42 @@
-<p>register works!</p>
+<form #registerForm="ngForm" (ngSubmit)="register()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" #name="ngModel" class="form-control" id="name" [(ngModel)]="user.name" name="name" required>
+    <div *ngIf="name.dirty && name.touched" class="invalid-feedback">
+      <div *ngIf="name?.errors?.['required']">Name is required</div>
+      </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" #email="ngModel" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+        <div *ngIf="email.dirty && email.touched" class="invalid-feedback">
+          <div *ngIf="email?.errors?.['required']">Email is required</div>
+          <div *ngIf="email?.errors?.['email']">Email is invalid</div>
+          </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" #password="ngModel" class="form-control" id="password" [(ngModel)]="user.password" name="password" required>
+            <div *ngIf="password.dirty && password.touched" class="invalid-feedback">
+              <div *ngIf="password?.errors?.['required']">Password is required</div>
+              </div>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" #confirmPass="ngModel" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+                <div *ngIf="confirmPass.dirty && confirmPass.touched" class="invalid-feedback">
+                  <div *ngIf="confirmPass?.errors?.['required']">Confirm Password is required</div>
+                  <div *ngIf="confirmPass?.errors?.['passwordMismatch']">Passwords do not match</div>
+                  </div>
+                  </div>
+                  <div class="mb-3">
+                    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+                    </div>
+                    <div class="mb-3">
+                      <a routerLink="../login">Login</a>
+      </div>
+
+
+
+
+</form>

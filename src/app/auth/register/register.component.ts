@@ -10,5 +10,10 @@ import { User } from '../../shared/interfaces/user';
 })
 export class RegisterComponent {
   user={} as User;
+  confirmPassword!: string;
+  register()
+  {
+    console.log(this.user);
+  }
 
 }

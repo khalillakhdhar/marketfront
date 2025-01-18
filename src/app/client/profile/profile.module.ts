@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HistoryComponent } from './history/history.component';
 import { CardComponent } from './card/card.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CardComponent } from './card/card.component';
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    FormsModule
   ]
 })
 export class ProfileModule { }

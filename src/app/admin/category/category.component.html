@@ -1,1 +1,42 @@
-<p>category works!</p>
+<form #categoryForm="ngForm">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" #name="ngModel" class="form-control" id="name" [(ngModel)]="category.name" name="name" required>
+    <div *ngIf="name.dirty && name.touched" class="invalid-feedback">
+      <div *ngIf="name?.errors?.['required']">Name is required</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea #description="ngModel" class="form-control" id="description" [(ngModel)]="category.description" name="description" required>
+    </textarea>
+    <div *ngIf="description.dirty && description.touched" class="invalid-feedback">
+      <div *ngIf="description?.errors?.['required']">Description is required</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid" (click)="save()">Save</button>
+  </div>
+</form>
+<table class="table table-responsive table-bordered">
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Description</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+<tr *ngFor="let category of categories">
+<td>{{category.id}}</td>
+<td>{{category.name}}</td>
+<td>{{category.description}}</td>
+<td>
+
+<button class="btn btn-danger" (click)="delete(category.id)">Delete</button>
+</td>
+</tbody>
+</table>
+
